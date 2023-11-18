@@ -5,7 +5,7 @@ Recreating ls functionality with Node.js. Mostly an excuse to learn Node.
 To run index.js from anywhere in the bash terminal:
 
 1. Navigate to ls-node-create folder.
-2. Enter npm link
+2. Run npm link
 
 This will result in nls having the same file/folder listing capabilities as ls.
 
