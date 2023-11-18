@@ -1,0 +1,15 @@
+{
+  "name": "ls-node-create",
+  "version": "1.0.0",
+  "description": "Recreating ls functionality with Node.js. Mostly an excuse to learn Node.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bin": {
+    "nls": "index.js"
+  }
+}
