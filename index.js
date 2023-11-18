@@ -8,9 +8,16 @@ fs.readdir(process.cwd(), (err, fileNames) => {
   // err === null, which means everything is ok
 
   if (err) {
-    // error handling code here
     throw new Error(err);
   }
 
-  console.log(fileNames);
+  for (let filename of fileNames) {
+    fs.lstat(filename, (err, stats) => {
+      if (err) {
+        throw new Error(err);
+      }
+
+      console.log(filename, stats.isFile());
+    });
+  }
 });
