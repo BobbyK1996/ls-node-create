@@ -2,22 +2,19 @@
 
 const fs = require("fs");
 
-fs.readdir(process.cwd(), (err, fileNames) => {
-  // err === error Object, which means something went wrong
-  // OR
-  // err === null, which means everything is ok
+const { lstat } = fs.promises;
 
+fs.readdir(process.cwd(), async (err, fileNames) => {
   if (err) {
-    throw new Error(err);
+    console.log(err);
   }
 
-  for (let filename of fileNames) {
-    fs.lstat(filename, (err, stats) => {
-      if (err) {
-        throw new Error(err);
-      }
-
-      console.log(filename, stats.isFile());
-    });
+  for (let fileName of fileNames) {
+    try {
+      const stats = await lstat(fileName);
+      console.log(fileName, stats.isFile());
+    } catch (err) {
+      throw new Error(err);
+    }
   }
 });
